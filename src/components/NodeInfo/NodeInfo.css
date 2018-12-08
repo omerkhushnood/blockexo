@@ -1,0 +1,17 @@
+#sticky-panel {display:none;height: 200px; width: 400px; position: fixed; z-index: 99; border-bottom-right-radius: 5px; background-color: #ffffff; box-shadow: 0px 0px 20px 0 #0000006b;}
+.node-details-table {display:block;}
+.node-details-table > table {margin-top: 20px;margin-left: auto;margin-right: auto; background: #2b4f48; padding: 10px; border-radius: 5px; color: #fff;}
+.node-details-table table th, .node-details-table table td {padding: 3px 5px !important; border: none}
+.node-details-table table th {color: #4f4f4f; text-align: right; padding-right: 10px;}
+#default-node-info:hover {cursor:pointer; color: #999999c4 !important;}
+#mynetwork { width: 100%; height: 365px; }
+
+#default-node-pane {height: 465px;border: dashed 5px #ccc}
+#default-node-info {font-size: 200px; text-align: center; display: block; color: #99999930; margin-top: 0px; font-style: italic}
+.default-node-clickhere-text {font-size: 20px; text-align: center; display: block; color: #99999973; margin-top: 20px; font-style: italic}
+.card.node-details-table {height: 465px}
+.node-close-btn {padding:5px;position:absolute;cursor:pointer;top:25px;right:25px;font-size:20px;color:#C00000}
+.node-details-peers {padding-left: 11px}
+.node-details-pending-transactions {padding-left: 15px}
+.node-details-block-transactions {padding-left: 14px}
+.node-details-block-hash {text-align: center;}

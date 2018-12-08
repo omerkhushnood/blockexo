@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VideoCoin Dev Net</title>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/assets/decor.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/style.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/style.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/prism.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/chartist.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/app.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/vis-network.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+
+    .navbar {margin-bottom: 0px}
+    .navbar-header {margin: 15px auto 5px}
+    .navbar-header > img {width:40px;float: left}
+    .navbar-header > h1 {float: left;margin-left: 10px;margin-top: 0px; margin-bottom: 0px}
+    .main-content {padding-left: 0px !important}
+    .topology-card {height: 465px}
+    </style>
+  </head>
+  <body data-col="2-columns" style="min-width: 100%;color: #000; background-color: #f5f7fa;">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="%PUBLIC_URL%/assets/js/vis.js"></script>
+    <script>
+      var nodes = new vis.DataSet([
+        {id: 1, label: 'Video-Coin-Node-0', group: 'miner'},
+        {id: 2, label: 'Video-Coin-Node-1', group: 'miner'},
+        {id: 3, label: 'Video-Coin-Node-2', group: 'miner'},
+        {id: 4, label: 'Video-Coin-Node-3', group: 'miner'},
+        {id: 5, label: 'Video-Coin-Node-4', group: 'miner'}
+      ]);
+      var edges = new vis.DataSet([
+        {from: 1, to: 2, dashes:true},
+        {from: 3, to: 4, dashes:[5,5,3,3]},
+        {from: 4, to: 1, dashes:[2,2,10,10]},
+        {from: 5, to: 1, dashes:true},
+        {from: 2, to: 4, dashes:[5,5]},
+        {from: 5, to: 4, dashes:[5,5]},
+        {from: 3, to: 5, dashes:[5,5,3,3]}
+      ]);
+      var container = document.getElementById('mynetwork');
+      var container2 = document.getElementById('sticky-panel');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {
+        nodes: {
+          shape: 'dot',
+          size: 30,
+          font: {
+            size: 14,
+            color: '#343a40'
+          },
+          borderWidth: 0
+        },
+        edges: {
+          width: 1,
+          color: '#444444'
+        },
+        groups: {
+          network: {
+            shape: 'icon',
+            icon: {
+              face: 'FontAwesome',
+              code: '\uf0e8',
+              size: 30,
+              color: 'orange'
+            }
+          },
+          miner: {
+            shape: 'circularImage',
+            image: '/assets/decor.png',
+            size: 30,
+            borderWidth: 0
+          }
+        }
+      };
+      var options2 = {
+        nodes: {
+          shape: 'dot',
+          size: 10,
+          font: {
+            size: 14,
+            color: '#343a40'
+          },
+          borderWidth: 0
+        },
+        edges: {
+          width: 1,
+          color: '#444444'
+        },
+        groups: {
+          network: {
+            shape: 'icon',
+            icon: {
+              face: 'FontAwesome',
+              code: '\uf0e8',
+              size: 30,
+              color: 'orange'
+            }
+          },
+          miner: {
+            shape: 'circularImage',
+            image: '/assets/decor.png',
+            size: 10,
+            borderWidth: 0
+          }
+        }
+      };
+      var onResetNode = function() {
+        var divsToHide = document.getElementsByClassName("node-details-table");
+        for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "none";
+        }
+        document.getElementById("default-node-pane").style.display="block";
+      }
+      var network = new vis.Network(container, data, options);
+      network.on("click", function (params) {
+        if(params.nodes.length && document.getElementById('node_videoCoinNode' + (parseInt(params.nodes[0]) - 1)) != null) {
+          var divsToHide = document.getElementsByClassName("node-details-table");
+          for(var i = 0; i < divsToHide.length; i++){
+              divsToHide[i].style.display = "none";
+          }
+          document.getElementById('node_videoCoinNode' + (parseInt(params.nodes[0]) - 1)).style.display = "block";
+          document.getElementById("node_close_videoCoinNode" + (parseInt(params.nodes[0]) - 1)).onclick = onResetNode;
+        }
+        else {
+          alert('This node is not active.');
+        }
+      });
+
+      document.getElementById('default-node-info').onclick = function() {
+        var divsToHide = document.getElementsByClassName("node-details-table");
+        for(var i = 0; i < divsToHide.length; i++){
+            divsToHide[i].style.display = "none";
+        }
+        document.getElementById('node_videoCoinNode0').style.display = "block";
+        document.getElementById("node_close_videoCoinNode0").onclick = onResetNode;
+      }
+
+      // if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      //   setTimeout(function(){
+      //     window.location.reload(1);
+      //   }, 15000);
+      // }
+      // $(window).scroll(function() {
+      //   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      //     setTimeout(function(){
+      //       window.location.reload(1);
+      //     }, 15000);
+      //   }
+      // });
+    </script>
+  </body>
+</html>

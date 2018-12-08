@@ -1,0 +1,5 @@
+.transactions-card {height: 340px;max-height: 340px;overflow-y: scroll}
+.transactions-card > .card-body > .table > thead > tr {border-bottom: 0px}
+.transactions-card > .card-body > .table > tbody > tr {border-bottom: 0px}
+.transactions-card > .card-body > .table > thead > tr > th {border-bottom: solid 1px #cfcfcf;padding: 8px;text-align: center}
+.transactions-card > .card-body > .table > tbody > tr > td {border:none !important; padding: 0px 8px !important;text-align: center; overflow: hidden; text-overflow: ellipsis}

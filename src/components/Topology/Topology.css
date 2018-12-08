@@ -1,0 +1,110 @@
+.looking-for {text-align: center; margin-top: 100px; font-style: italic; font-size: 25px;animation: lookingForAnim 4.9s ease infinite; -o-animation: lookingForAnim 4.9s ease infinite; -ms-animation: lookingForAnim 4.9s ease infinite; -webkit-animation: lookingForAnim 4.9s ease infinite; -moz-animation: lookingForAnim 4.9s ease infinite;}
+@keyframes lookingForAnim {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 97px;
+		font-size: 0;
+		text-shadow: 0 0 6px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+}
+
+@-o-keyframes lookingForAnim {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 97px;
+		font-size: 0;
+		text-shadow: 0 0 6px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+}
+
+@-ms-keyframes lookingForAnim {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 97px;
+		font-size: 0;
+		text-shadow: 0 0 6px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+}
+
+@-webkit-keyframes lookingForAnim {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 97px;
+		font-size: 0;
+		text-shadow: 0 0 6px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+}
+
+@-moz-keyframes lookingForAnim {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 97px;
+		font-size: 0;
+		text-shadow: 0 0 6px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 1px white;
+	}
+}

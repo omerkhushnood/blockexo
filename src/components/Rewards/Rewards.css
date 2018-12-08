@@ -1,0 +1,4 @@
+.rewards-card {height: 340px}
+.rewards-card > .card-body > .table {margin-top: 10px;margin-left: auto;margin-right: auto}
+.rewards-card > .card-body > .table > tbody > tr > th {font-size: 15px;text-align: center}
+.rewards-card > .card-body > .table > tbody > tr > td {font-size: 30px;padding: 5px;vertical-align: middle}
